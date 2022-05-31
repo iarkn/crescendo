@@ -1,0 +1,10 @@
+{
+    "name": "crescendo",
+    "displayName": "Crescendo",
+    "author": "iarkn",
+    "description": "Mindustry mod written in Clojure!",
+    "version": "0.1.0",
+    "minGameVersion": "135",
+    "main": "crescendo.CljBoot",
+    "java": true
+}
