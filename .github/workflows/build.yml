@@ -1,0 +1,20 @@
+name: Build Changes
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the mod
+        run: lein uberjar
+
+      - uses: actions/upload-artifact@v2
+        if: runner.os == 'Linux'
+        with:
+          name: crescendo (zipped)
+          path: target/uberjar/crescendo-*-standalone.jar
