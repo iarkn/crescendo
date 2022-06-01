@@ -8,9 +8,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build the mod
-        run: lein uberjar
+        run: |
+          export PATH=$ANDROID_HOME/build-tools/32.0.0:$PATH
+          lein do uberjar, dex
 
       - uses: actions/upload-artifact@v2
         with:
           name: crescendo (zipped)
-          path: target/uberjar/crescendo-*-standalone.jar
+          path: |
+            target/crescendo-*-android.jar
+            target/crescendo-*-standalone.jar

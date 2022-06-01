@@ -1,10 +1,11 @@
-(ns crescendo.core)
+(ns crescendo.core
+  (:import (arc.util Log))
 
 (defn -main []
-  (println "main"))
+  (Log/info "main"))
 
 (defn -init []
-  (println "Hello, world!"))
+  (Log/info "Hello, world!"))
 
 (defn -loadContent []
-  (println "Not loading anything."))
+  (Log/info "Not loading anything."))
