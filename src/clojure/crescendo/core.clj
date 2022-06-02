@@ -1,5 +1,5 @@
 (ns crescendo.core
-  (:import (arc.util Log))
+  (:import (arc.util Log)))
 
 (defn -main []
   (Log/info "main"))

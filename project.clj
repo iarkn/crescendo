@@ -12,7 +12,7 @@
   :resource-paths ["assets"]
 
   :main nil
-  :omit-source true
+  :jar-exclusions [#".java"]
   :javac-options ["-source" "8" "-target" "8" "-Xlint:-options"]
   :profiles {:uberjar  {:aot :all}
              :provided {:dependencies
