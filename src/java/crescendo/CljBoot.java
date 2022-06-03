@@ -11,7 +11,6 @@ public class CljBoot extends Mod {
 
     public CljBoot() {
         // TODO: Check if this destroys everything
-        // TODO: Don't invoke non-existent functions
         ClassLoader cl = getClass().getClassLoader();
         Thread.currentThread().setContextClassLoader(cl);
 

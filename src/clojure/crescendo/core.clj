@@ -1,11 +1,28 @@
 (ns crescendo.core
-  (:import (arc.util Log)))
+  (:require [crescendo.arc :as arc])
+  (:import (arc Core Events)
+           (arc.func Cons)
+           (arc.util Log Time)
+           (mindustry.game EventType$ClientLoadEvent)
+           (mindustry.ui.dialogs BaseDialog)))
 
 (defn -main []
-  (Log/info "main"))
+  (Events/on
+    EventType$ClientLoadEvent
+    (arc/cons1
+      (fn [_] (Time/runTask
+                10
+                #(arc/cons1
+                   (let [dialog (BaseDialog. "horse")
+                         cont   (.cont dialog)]
+                     (.row (.add cont "horse"))
+                     (doto (.image cont (.find Core/atlas "router"))
+                       (.pad 16)
+                       .row)
+                     (doto dialog
+                       .addCloseButton
+                       .show))))))))
 
-(defn -init []
-  (Log/info "Hello, world!"))
+(defn -init [])
 
-(defn -loadContent []
-  (Log/info "Not loading anything."))
+(defn -loadContent [])
