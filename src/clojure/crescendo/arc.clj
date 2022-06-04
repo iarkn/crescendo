@@ -1,18 +1,18 @@
 (ns crescendo.arc
   (:import (arc.func Cons Cons2 Cons3 Cons4)))
 
-(defn cons1 [func]
+(defn cons1 [f]
   (reify Cons
-    (get [this a] (func a))))
+    (get [this a] (f a))))
 
-(defn cons2 [func]
+(defn cons2 [f]
   (reify Cons2
-    (get [this a b] (func a b))))
+    (get [this a b] (f a b))))
 
-(defn cons3 [func]
+(defn cons3 [f]
   (reify Cons3
-    (get [this a b c] (func a b c))))
+    (get [this a b c] (f a b c))))
 
-(defn cons4 [func]
+(defn cons4 [f]
   (reify Cons4
-    (get [this a b c d] (func a b c d))))
+    (get [this a b c d] (f a b c d))))
